@@ -1,4 +1,4 @@
-# 🎯 Profile Rank – Find opportunities Meant for You
+# 🎯 Profile Rank (FitFinder) – Find opportunities Meant for You
 
 Welcome to **Profile Rank**, a smart and community-driven platform where you can discover **global scholarships, conferences, hackathons, research programs, apprenticeships, and more**, all based on your profile.
 
