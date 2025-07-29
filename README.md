@@ -76,8 +76,8 @@ Make sure you have:
 ### 🚀 Clone & Run Locally
 
 ```bash
-git clone https://github.com/<your-org>/profile-rank.git
-cd profile-rank
+git clone https://github.com/Code-Social/fitfinder.git
+cd fitfinder
 npm install
 npm start
 ```
@@ -92,7 +92,7 @@ We follow beginner-friendly open source practices.
 
 ### 📌 Step-by-Step Guide
 
-1. Go to the [Issues](https://github.com/<your-org>/profile-rank/issues) tab  
+1. Go to the [Issues](https://github.com/Code-Social/fitfinder/issues) tab  
 2. Look for labels like `good first issue`, `help wanted`, or `feature request`  
 3. Comment on the issue to get assigned  
 4. **Fork** the repo  
@@ -122,6 +122,7 @@ git push origin feature/profile-card
 - LinkedIn profile scraping
 - Creating dummy data or success stories
 - Writing docs and tooltips
+- ...and more!
 
 ---
 
