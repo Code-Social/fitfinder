@@ -1,0 +1,93 @@
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.background-container.loaded {
+  opacity: 1;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(100, 200, 255, 0.05) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+  background-size: cover, 50px 50px;
+  background-position: center;
+  background-attachment: fixed;
+  animation: subtle-float 20s ease-in-out infinite;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 123, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(100, 200, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .background-image {
+  background-image: 
+    linear-gradient(135deg, rgba(99, 179, 237, 0.15) 0%, rgba(66, 153, 225, 0.08) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+}
+
+[data-theme="dark"] .background-overlay {
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(99, 179, 237, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(66, 153, 225, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .background-image {
+    background-attachment: scroll;
+    animation: subtle-float-mobile 15s ease-in-out infinite;
+  }
+  
+  @keyframes subtle-float-mobile {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-5px) scale(1.01);
+    }
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .background-image {
+    animation: none;
+  }
+  
+  .background-container {
+    transition: opacity 0.5s ease-in-out;
+  }
+}
