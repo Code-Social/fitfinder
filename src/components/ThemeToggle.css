@@ -1,0 +1,95 @@
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.toggle-track {
+  width: 50px;
+  height: 26px;
+  background: var(--toggle-bg);
+  border-radius: 13px;
+  padding: 3px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  border: 2px solid var(--toggle-border);
+}
+
+.toggle-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--toggle-thumb-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  transform: translateX(0);
+}
+
+[data-theme="dark"] .toggle-thumb {
+  transform: translateX(24px);
+}
+
+.icon {
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Light theme variables */
+[data-theme="light"] {
+  --toggle-bg: #e1e5e9;
+  --toggle-border: #cbd5e0;
+  --toggle-thumb-bg: #ffffff;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --toggle-bg: #4a5568;
+  --toggle-border: #2d3748;
+  --toggle-thumb-bg: #f7fafc;
+}
+
+/* Focus styles for accessibility */
+.theme-toggle:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .toggle-track {
+    width: 44px;
+    height: 24px;
+  }
+  
+  .toggle-thumb {
+    width: 18px;
+    height: 18px;
+  }
+  
+  [data-theme="dark"] .toggle-thumb {
+    transform: translateX(20px);
+  }
+  
+  .icon {
+    font-size: 10px;
+  }
+}
