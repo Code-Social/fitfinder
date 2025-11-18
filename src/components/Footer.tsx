@@ -386,13 +386,13 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="bottom-content">
             <div className="footer-brand">
-              <div className="brand-logo">
-                <CodeIcon />
-              </div>
               <div className="brand-info">
                 <h3>CodeSocial</h3>
                 <p>Built by the community, for the community</p>
               </div>
+              {/* <div className="brand-logo">
+                <CodeIcon />
+              </div> */}
             </div>
 
             <div className="social-section">
