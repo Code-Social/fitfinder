@@ -1,28 +1,53 @@
+/* Header.css */
+
 header {
+  /* Glassmorphism base */
+  background: rgba(255, 255, 255, 0.65); /* Fallback if var doesn't exist */
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 20px 0;
-  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle border */
+  
+  /* Layout & Spacing */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
-  box-shadow: var(--glass-shadow);
+  padding: 12px 30px; /* More padding on sides (30px) to clear the curves */
+  margin: 20px auto;  /* Centers the header and adds space from top */
+  width: 90%;         /* Don't span full width, looks better as a "floating pill" */
+  max-width: 1200px;  /* Stop it from getting too wide on huge screens */
+  
+  /* Shape & Float */
+  border-radius: 50px; /* Full pill shape */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); /* Soft shadow */
   position: sticky;
-  top: 0;
+  top: 20px;          /* Sticks 20px from top when scrolling */
   z-index: 1000;
-  border-radius: 40px;
-  overflow: hidden;
-  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for the whole header */
+header:hover {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 header h1 {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333; /* Darker grey for better contrast */
   color: var(--text-primary);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  letter-spacing: -0.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Make "FitFinder" pop more than "Profile Rank" */
+.brand-highlight {
+  color: var(--primary-color, #007bff); /* Use your primary theme color */
+  font-weight: 800;
 }
 
 .header-controls {
@@ -31,22 +56,23 @@ header h1 {
   gap: 15px;
 }
 
+/* The GitHub Button Circle */
 .github-btn {
-  background: var(--glass-bg);
+  background: transparent;
   color: var(--text-primary);
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 8px;
-  border: 1px solid var(--glass-border);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  font-weight: 500;
+  padding: 8px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
 }
 
 .github-btn:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  background: rgba(0, 0, 0, 0.05);
+  transform: rotate(15deg); /* Playful rotation on hover */
+  color: black;
 }
