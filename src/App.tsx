@@ -4,6 +4,8 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import BackgroundImage from './components/BackgroundImage';
 import Header from './components/Header';
+import Footer from './components/Footer';
+
 function App() {
   return (
     <ThemeProvider>
@@ -92,9 +94,10 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer>
+        {/* <footer>
           <p>Made with ❤️ by the open source community of Code Social</p>
-        </footer>
+        </footer> */}
+        <Footer/>
       </div>
     </ThemeProvider>
   );
