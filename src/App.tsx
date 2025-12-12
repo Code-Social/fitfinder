@@ -3,6 +3,7 @@ import './App.css';
 import { ThemeProvider } from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import BackgroundImage from './components/BackgroundImage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -101,9 +102,10 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer>
+        {/* <footer>
           <p>Made with ❤️ by the open source community of Code Social</p>
-        </footer>
+        </footer> */}
+        <Footer/>
       </div>
     </ThemeProvider>
   );
