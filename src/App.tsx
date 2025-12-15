@@ -3,6 +3,7 @@ import './App.css';
 import { ThemeProvider } from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import BackgroundImage from './components/BackgroundImage';
+import Header from './components/Header';
 import Footer from './components/Footer';
 
 function App() {
@@ -10,17 +11,8 @@ function App() {
     <ThemeProvider>
       <BackgroundImage />
       <div className="container">
-        {/* Header */}
-        <header>
-          <h1>Profile Rank (FitFinder)</h1>
-          <div className="header-controls">
-            <ThemeToggle />
-            <a href="https://github.com/Code-Social/fitfinder" className="github-btn">
-              GitHub
-            </a>
-          </div>
-        </header>
-
+        < Header />     {/* Changed Static Header to Header component */}
+        
         {/* main */}
         <main>
           {/* hero section*/}
