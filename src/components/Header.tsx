@@ -1,38 +1,61 @@
-import React from 'react';
-import ThemeToggle from './ThemeToggle';
-import './Header.css';
+import { useState } from "react";
 
-const Header: React.FC = () => {
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
-    <header>
-      {/* Visual Hierarchy: FitFinder is the App, Profile Rank is the page/feature */}
-      <h1>
-        Profile Rank <span className="brand-highlight">(FitFinder)</span>
-      </h1>
-      
-      <div className="header-controls">
-        <ThemeToggle />
-        
-        <a 
-          href="https://github.com/Code-Social/fitfinder" 
-          className="github-btn"
-          target="_blank" 
-          rel="noopener noreferrer"
-          aria-label="GitHub Repository"
+    <header className="bg-white shadow-md px-4 py-3">
+      {/* Navbar container */}
+      <nav className="flex items-center justify-between">
+        {/* Logo / Brand */}
+        <div className="text-xl font-bold">Brand</div>
+
+        {/* Desktop menu */}
+        <ul className="hidden md:flex space-x-6">
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 1</li>
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 2</li>
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 3</li>
+        </ul>
+
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden p-2 bg-gray-300 rounded focus:outline-none"
+          onClick={toggleMenu}
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="22" 
-            height="22" 
-            viewBox="0 0 24 24" 
-            fill="currentColor"
-          >
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </a>
+          {isOpen ? "✖" : "☰"}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <ul className="flex flex-col space-y-2 mt-2 md:hidden bg-gray-50 shadow-md p-2 rounded">
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 1</li>
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 2</li>
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 3</li>
+        </ul>
+      )}
+
+      {/* Device-specific visual blocks (optional, for PR proof) */}
+      <div className="mt-4 space-y-2 text-center font-semibold">
+        <div className="block sm:hidden bg-blue-200 p-2 rounded">
+          Small Mobile &lt;640px
+        </div>
+        <div className="hidden sm:block md:hidden bg-green-200 p-2 rounded">
+          Medium Mobile 640–768px
+        </div>
+        <div className="hidden md:block lg:hidden bg-yellow-200 p-2 rounded">
+          Tablet 768–1024px
+        </div>
+        <div className="hidden lg:block xl:hidden bg-orange-200 p-2 rounded">
+          Laptop 1024–1280px
+        </div>
+        <div className="hidden xl:block bg-red-200 p-2 rounded">
+          Large Screen &gt;1280px
+        </div>
       </div>
     </header>
   );
-};
+}
 
-export default Header;
