@@ -1,47 +1,61 @@
 import { useState } from "react";
-import React from 'react';
-import ThemeToggle from './ThemeToggle';
-import './Header.css';
 
-const Header: React.FC = () => {  
- const [isOpen, setIsOpen] = useState(false);
- return (
-    <header>
-      <nav className="bg-white shadow-md px-4 py-3 md:px-8 md:py-4">
-  <div className="flex items-center justify-between">
-    {/* Logo */}
-    <div className="text-2xl font-bold">FitFinder</div>
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
 
-    {/* Hamburger Button for Mobile */}
-    <button
-      className="text-3xl md:hidden focus:outline-none"
-      onClick={() => setIsOpen(!isOpen)}
-    >
-      {isOpen ? "✕" : "☰"}
-    </button>
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-    {/* Desktop Links */}
-    <ul className="hidden md:flex space-x-6 font-medium">
-      <li><a href="/" className="hover:text-blue-500">Home</a></li>
-      <li><a href="/about" className="hover:text-blue-500">About</a></li>
-      <li><a href="/features" className="hover:text-blue-500">Features</a></li>
-      <li><a href="/contact" className="hover:text-blue-500">Contact</a></li>
-    </ul>
-  </div>
+  return (
+    <header className="bg-white shadow-md px-4 py-3">
+      {/* Navbar container */}
+      <nav className="flex items-center justify-between">
+        {/* Logo / Brand */}
+        <div className="text-xl font-bold">Brand</div>
 
-  {/* Mobile Links */}
-  {isOpen && (
-    <ul className="flex flex-col mt-4 space-y-3 md:hidden font-medium">
-      <li><a href="/" className="hover:text-blue-500">Home</a></li>
-      <li><a href="/about" className="hover:text-blue-500">About</a></li>
-      <li><a href="/features" className="hover:text-blue-500">Features</a></li>
-      <li><a href="/contact" className="hover:text-blue-500">Contact</a></li>
-    </ul>
-  )}
-</nav>
+        {/* Desktop menu */}
+        <ul className="hidden md:flex space-x-6">
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 1</li>
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 2</li>
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 3</li>
+        </ul>
 
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden p-2 bg-gray-300 rounded focus:outline-none"
+          onClick={toggleMenu}
+        >
+          {isOpen ? "✖" : "☰"}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <ul className="flex flex-col space-y-2 mt-2 md:hidden bg-gray-50 shadow-md p-2 rounded">
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 1</li>
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 2</li>
+          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 3</li>
+        </ul>
+      )}
+
+      {/* Device-specific visual blocks (optional, for PR proof) */}
+      <div className="mt-4 space-y-2 text-center font-semibold">
+        <div className="block sm:hidden bg-blue-200 p-2 rounded">
+          Small Mobile &lt;640px
+        </div>
+        <div className="hidden sm:block md:hidden bg-green-200 p-2 rounded">
+          Medium Mobile 640–768px
+        </div>
+        <div className="hidden md:block lg:hidden bg-yellow-200 p-2 rounded">
+          Tablet 768–1024px
+        </div>
+        <div className="hidden lg:block xl:hidden bg-orange-200 p-2 rounded">
+          Laptop 1024–1280px
+        </div>
+        <div className="hidden xl:block bg-red-200 p-2 rounded">
+          Large Screen &gt;1280px
+        </div>
+      </div>
     </header>
   );
-};
+}
 
-export default Header;
