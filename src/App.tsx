@@ -17,8 +17,14 @@ function App() {
         <main>
           {/* hero section*/}
           <section className="hero">
-            <h2>Find Opportunities Meant for You</h2>
-            <p>Discover scholarships, hackathons, conferences, and research programs based on your profile.</p>
+            <h2 className="hero-title">
+              Find Opportunities Meant for You
+            </h2>
+            
+            <p className="hero-subtitle">
+              Discover scholarships, hackathons, conferences, and research programs based on your profile.
+            </p>
+            
             <div className="buttons">
               <button className="primary-btn">Start Contributing</button>
               <button className="secondary-btn">Learn More</button>
