@@ -1,61 +1,72 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [query, setQuery] = useState("");
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // ✅ Debounce utility (local, simple, safe)
+  function debounce<T extends (...args: any[]) => void>(fn: T, delay = 400) {
+    let timer: ReturnType<typeof setTimeout>;
+    return (...args: Parameters<T>) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), delay);
+    };
+  }
+
+  // ✅ Mock search handler (API-ready)
+  const handleSearch = (value: string) => {
+    if (!value.trim()) return;
+    console.log("Searching for:", value);
+    // future API call goes here
+  };
+
+  // ✅ Debounced version
+  const debouncedSearch = useMemo(
+    () => debounce(handleSearch, 400),
+    []
+  );
+
   return (
     <header className="bg-white shadow-md px-4 py-3">
-      {/* Navbar container */}
       <nav className="flex items-center justify-between">
-        {/* Logo / Brand */}
-        <div className="text-xl font-bold">Brand</div>
+        <div className="text-xl font-bold">FitFinder</div>
 
-        {/* Desktop menu */}
-        <ul className="hidden md:flex space-x-6">
-          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 1</li>
-          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 2</li>
-          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 3</li>
-        </ul>
+        {/* ✅ Search input */}
+        <input
+          type="text"
+          placeholder="Search opportunities..."
+          className="hidden md:block px-3 py-1 border rounded"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            debouncedSearch(e.target.value);
+          }}
+        />
 
-        {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 bg-gray-300 rounded focus:outline-none"
+          className="md:hidden p-2 bg-gray-300 rounded"
           onClick={toggleMenu}
         >
           {isOpen ? "✖" : "☰"}
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {isOpen && (
-        <ul className="flex flex-col space-y-2 mt-2 md:hidden bg-gray-50 shadow-md p-2 rounded">
-          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 1</li>
-          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 2</li>
-          <li className="px-3 py-2 rounded hover:bg-gray-200">Link 3</li>
-        </ul>
+        <div className="md:hidden mt-2">
+          <input
+            type="text"
+            placeholder="Search opportunities..."
+            className="w-full px-3 py-2 border rounded"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              debouncedSearch(e.target.value);
+            }}
+          />
+        </div>
       )}
-
-      {/* Device-specific visual blocks (optional, for PR proof) */}
-      <div className="mt-4 space-y-2 text-center font-semibold">
-        <div className="block sm:hidden bg-blue-200 p-2 rounded">
-          Small Mobile &lt;640px
-        </div>
-        <div className="hidden sm:block md:hidden bg-green-200 p-2 rounded">
-          Medium Mobile 640–768px
-        </div>
-        <div className="hidden md:block lg:hidden bg-yellow-200 p-2 rounded">
-          Tablet 768–1024px
-        </div>
-        <div className="hidden lg:block xl:hidden bg-orange-200 p-2 rounded">
-          Laptop 1024–1280px
-        </div>
-        <div className="hidden xl:block bg-red-200 p-2 rounded">
-          Large Screen &gt;1280px
-        </div>
-      </div>
     </header>
   );
 }
-
