@@ -1,12 +1,19 @@
 ## 📚 Table of Contents
 
-- [About the Project](#profile-rank-fitfinder--find-opportunities-meant-for-you)
+- [About the Project](#-profile-rank-fitfinder--find-opportunities-meant-for-you)
 
-- [What Can You Do with Profile Rank?](#what-can-you-do-with-profile-rank)
+- [What Can You Do with Profile Rank?](#-what-can-you-do-with-profile-rank)
 
 - [Tech Stack](#-tech-stack)
-
-- [Pages in the MVP](#pages-in-the-mvp)
+- [Pages in the MVP](#-pages-in-the-mvp)
+- [Getting Started](#-getting-started)
+- [How to Contribute](#-how-to-contribute)
+- [Areas You Can Contribute To](#-areas-you-can-contribute-to)
+- [Community and Help](#-community-and-help)
+- [Project Maintainers](#-project-maintainers)
+- [WOCS Mentors](#-wocs-mentors)
+- [Code of Conduct](#-code-of-conduct)
+- [Support the Project](#-support-the-project)
 
 # 🎯 Profile Rank (FitFinder) – Find opportunities Meant for You
 
