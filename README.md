@@ -82,6 +82,8 @@ Save opportunities, view past submissions, and help others in any way you can.
 
 ---
 
+<a id="-getting-started"></a>
+
 ## 🧑‍💻 Getting Started
 
 > Ready to contribute? We welcome beginners! 🙌
@@ -106,6 +108,8 @@ npm start
 Open `http://localhost:3000` in your browser.
 
 ---
+
+<a id="-how-to-contribute"></a>
 
 ## 🛠️ How to Contribute
 
