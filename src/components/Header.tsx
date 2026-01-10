@@ -37,25 +37,26 @@ export default function Header() {
         </ul>
       )}
 
-      {/* Device-specific visual blocks (optional, for PR proof) */}
-      <div className="mt-4 space-y-2 text-center font-semibold">
-        <div className="block sm:hidden bg-blue-200 p-2 rounded">
-          Small Mobile &lt;640px
+      {/* Device-specific visual blocks - Conditional rendering for debug only */}
+      {process.env.NODE_ENV === "development" && (
+        <div className="mt-4 space-y-2 text-center font-semibold">
+          <div className="block sm:hidden bg-blue-200 p-2 rounded">
+            Small Mobile &lt;640px
+          </div>
+          <div className="hidden sm:block md:hidden bg-green-200 p-2 rounded">
+            Medium Mobile 640–768px
+          </div>
+          <div className="hidden md:block lg:hidden bg-yellow-200 p-2 rounded">
+            Tablet 768–1024px
+          </div>
+          <div className="hidden lg:block xl:hidden bg-orange-200 p-2 rounded">
+            Laptop 1024–1280px
+          </div>
+          <div className="hidden xl:block bg-red-200 p-2 rounded">
+            Large Screen &gt;1280px
+          </div>
         </div>
-        <div className="hidden sm:block md:hidden bg-green-200 p-2 rounded">
-          Medium Mobile 640–768px
-        </div>
-        <div className="hidden md:block lg:hidden bg-yellow-200 p-2 rounded">
-          Tablet 768–1024px
-        </div>
-        <div className="hidden lg:block xl:hidden bg-orange-200 p-2 rounded">
-          Laptop 1024–1280px
-        </div>
-        <div className="hidden xl:block bg-red-200 p-2 rounded">
-          Large Screen &gt;1280px
-        </div>
-      </div>
+      )}
     </header>
   );
 }
-
