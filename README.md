@@ -1,193 +1,90 @@
-# 🎯 Profile Rank (FitFinder) – Find opportunities Meant for You
+# Code Social: The Aid you Need in your learning Journey
 
-Welcome to **Profile Rank**, a smart and community-driven platform where you can discover **global scholarships, conferences, hackathons, research programs, apprenticeships, and more**, all based on your profile.
+## 1. Introduction & Mission
 
-> Think of it as a chill version of LinkedIn, but focused only on non-job opportunities that help you grow. We help you figure out where you're most likely to get accepted, based on your skills, goals, and even your LinkedIn profile. You'll get suggestions from the UI when you submit your profile, and community members can comment on opportunities and share their experiences.
+**Code Social Community** is a learning-focused community for aspiring tech enthusiasts. We empower individuals with resources, mentorship, and opportunities to:
 
----
+- Cultivate their skills in diverse technologies.
+- Explore their interests and expand their knowledge base.
+- Connect with like-minded peers on their tech journeys.
 
-## 🌍 What Can You Do with Profile Rank?
+Founded in 2023, Code Social fosters a collaborative environment for learning and growth.
 
-✨ **Discover Opportunities**  
-Search or browse through opportunities curated by other users:  
-- 🎓 Scholarships  
-- 🧑‍🔬 Research Programs  
-- 🧑‍🏫 Apprenticeships  
-- 🧑‍💻 Hackathons  
-- 🌎 Conferences
+### Our Approach:
 
-... and see if you're a good fit or what you can do to become one.
+- **Free Learning Sessions**: Gain valuable insights from experienced mentors and peers.
+- **Mentorship Programs**: Receive personalized guidance and support from tech industry experts.
+- **Peer-to-Peer Learning**: Collaborate and share knowledge with fellow community members.
+- **Hands-on Learning**: Immerse yourself in coding challenges, hackathons, and real-world projects to solidify your skills.
 
-🧠 **Find Your Fit**  
-Once you create your **FitProfile**, the system will show you how well you match with each opportunity using a percentage based on your:
-- Skills
-- Education & GPA
-- Location
-- LinkedIn Profile
-- Past experience
+### Beyond Learning:
 
-💬 **Read Success Stories**  
-Each opportunity can feature real prep tips, success stories, and checklists shared by people who got selected.
+- **Networking Events**: Connect with industry professionals at meetups and conferences.
+- **Career Opportunities**: Explore potential jobs and build relationships with potential employers.
 
-✅ **Submit New Opportunities**  
-Logged-in users can submit global opportunities to help others grow. Once approved by admins, they'll be featured on the platform.
+### Stay Updated:
 
-🔖 **Bookmark and Track**  
-Save opportunities, view past submissions, and help others in any way you can.
+- **Resource Hub**: Access a treasure trove of online resources -- tutorials, blogs, and forums -- to deepen your understanding.
 
----
+### We Focus On:
 
-## 🧰 Tech Stack
+While we don't limit ourselves to specific technologies, we believe in the power of collaboration to create something extraordinary!
 
-| Part           | Tech Used                           |
-|----------------|-------------------------------------|
-| Frontend       | React.js, TailwindCSS               |
-| Backend        | Node.js with Express or Firebase    |
-| Database       | MongoDB or Firebase Realtime DB     |
-| Auth           | Firebase Authentication (Google)    |
-| AI Integration | OpenAI or basic ML model (future)   |
-| LinkedIn Sync  | LinkedIn scraping via Puppeteer/API |
-| Hosting        | Vercel, Render, or Firebase Hosting |
+## 2. Getting Involved
 
----
+Welcome aboard! Joining Code Social is a breeze. Simply click on any of the links below:
 
-## 💻 Pages in the MVP
+- Discord Server *(This is where we're most active!)*: [Click here to join](https://discord.gg/MSTNyRSPYW)
 
-1. **Home** – Overview of platform and highlights of other sections  
-2. **Opportunities** – List view with filters (type, location, deadline, fit score), full info, apply link, success stories, and chance level  
-3. **Submit Opportunity** – Form to submit a new opportunity (login required)  
-4. **My Dashboard** – Saved opportunities, fit history, profile editor  
-5. **FitProfile Setup** – Onboarding flow or edit page  
-6. **Success Stories** – A separate feed of real user stories and tips  
-7. **Admin Panel (optional)** – For moderators to approve or reject opportunities
+### Membership Guidelines:
 
----
+Be respectful to fellow members and actively participate in our initiatives.
 
-## 🧑‍💻 Getting Started
+## 3. Contribution Guidelines
 
-> Ready to contribute? We welcome beginners! 🙌
+We have some awesome projects you can contribute to. Check them out on [this page](https://github.com/orgs/Code-Social/repositories)
 
-### 📦 Prerequisites
-Make sure you have:
-- Git and GitHub account
-- Node.js and npm installed
-- Code editor (VS Code recommended)
+## 4. Communication Channels
 
-### 🚀 Clone & Run Locally
+We're most active on Discord, but we keep you informed and entertained across platforms:
 
-```bash
-git clone https://github.com/Code-Social/fitfinder.git
-cd fitfinder
-npm install
-npm start
-```
+[![Join us on Discord](https://img.shields.io/badge/Join%20Us-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/MSTNyRSPYW)
 
-Open `http://localhost:3000` in your browser.
+[![Follow on LinkedIn](https://img.shields.io/badge/Follow-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/code-social/)
 
----
+[![Follow on Instagram](https://img.shields.io/badge/Follow-Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/codesocial.tech/)
 
-## 🛠️ How to Contribute
+[![Follow on X (Twitter)](https://img.shields.io/badge/Follow-X-000000?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/codesocial_tech)
 
-We follow beginner-friendly open source practices.
+## 5. Learning Resources
 
-### 📌 Step-by-Step Guide
+Looking to level up your skills? Dive into this repository: [this repository](https://github.com/arushi2610/learning-resources)
 
-1. Go to the [Issues](https://github.com/Code-Social/fitfinder/issues) tab  
-2. Look for labels like `good first issue`, `help wanted`, or `feature request`  
-3. Comment on the issue to get assigned  
-4. **Fork** the repo  
-5. Create a new branch (e.g., `feature/form-validation`)  
-6. Make your changes  
-7. Create a Pull Request (PR) – we'll review and guide you
+## 6. Code of Conduct
 
-### 🔁 Example Commands
+### General Rules:
 
-```bash
-git checkout -b feature/profile-card
-git add .
-git commit -m "feat: add profile card component"
-git push origin feature/profile-card
-```
+- **Respect and Be Civil**: Treat everyone with dignity. Avoid offensive language, harassment, and bullying.
+- **No Spam or Self-Promotion**: Avoid irrelevant content and excessive self-promotion.
+- **Keep Discussions Relevant**: Focus on coding, design, and tech-related topics. 
+- **Proper Language and Formatting**: Communicate clearly and avoid excessive acronyms, jargon, or caps lock.
+- **No Plagiarism**: Credit others' work and respect intellectual property rights.
+- **Be Helpful and Supportive**: Foster a supportive environment. Offer assistance and participate constructively.
 
----
+### Project Rules:
 
-## 🔎 Areas You Can Contribute To
+- **Code Reviews and Feedback**: Encourage code reviews and provide constructive feedback for mutual improvement.
+- **Design Showcases and Critiques**: Share your design projects, seek feedback, and participate in design critiques.
+- **Project Collaboration**: Collaborate with others on projects. 
+- **Learning Resources**: Share valuable coding and design resources, tutorials, articles, and books to help others learn and grow.
+- **Events and Challenges**: Be a part of our coding and design-related events, competitions, or challenges to foster creativity and skill development.
+- **Tools and Technologies**: Discuss and share information about coding languages, frameworks, design software, and emerging technologies.
+- **Ask for Help**: Don't hesitate to seek help from the community when you face challenges.
 
-- Frontend UI
-- Form validation
-- Building filters and dropdowns
-- Bookmark/save functionality
-- Firebase integration
-- Data models (MongoDB/Firebase)
-- LinkedIn profile scraping
-- Creating dummy data or success stories
-- Writing docs and tooltips
-- ...and more!
+## 7. Contact Information
 
----
+Have questions? Reach out to us via email: codesocialcommunity@gmail.com
 
-## 💬 Community and Help
+## 8. Call to Action
 
-Questions? Ideas? Join us here:
-- 💬 [Discord](https://discord.gg/MSTNyRSPYW)
-- 💡 [Instagram](https://instagram.com/codesocial.tech)
-- 🌐 [Website](https://codesocial.tech)
-
----
-
-## ✨ Project Maintainers
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/arushi2610">
-        <img src="https://avatars.githubusercontent.com/u/91735359?v=4" width="100px;" alt="arushi2610"/>
-        <br />
-        <sub><b>arushi2610</b></sub>
-      </a>
-    </td>
-    <td align="center">
-    <a href="https://github.com/Rizwan102003">
-        <img src="https://avatars.githubusercontent.com/u/90749649?v=4" width="100px;" alt="Rizwan102003"/>
-        <br />
-        <sub><b>Rizwan102003</b></sub>
-      </a>
-    </td>
-  </tr>
-</table>
-
----
-
-## ✨ WOCS Mentors
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/arushi2610">
-        <img src="https://avatars.githubusercontent.com/u/91735359?v=4" width="100px;" alt="arushi2610"/>
-        <br />
-        <sub><b>arushi2610</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/Sitaram8472">
-        <img src="https://avatars.githubusercontent.com/Sitaram8472" width="100px;" alt="Sitaram8472"/>
-        <br />
-        <sub><b>Sitaram8472</b></sub>
-      </a>
-    </td>
-  </tr>
-</table>
-
----
-
-## 💖 Code of Conduct
-
-Be kind, helpful, and welcoming to everyone.
-
----
-
-## ⭐ Support the Project
-
-If you like the idea, give this repo a ⭐ and share it with friends.  
-Let’s make opportunity discovery smarter and more inclusive 🚀
+Join Code Social and embark on your tech adventure! We look forward to having you on board.
