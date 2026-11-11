@@ -1,59 +1,108 @@
 /* Header.css */
 
-header {
+.site-header {
   /* Glassmorphism base */
-  background: rgba(255, 255, 255, 0.65); /* Fallback if var doesn't exist */
-  background: var(--glass-bg);
+  background: var(--header-bg, rgba(255, 255, 255, 0.85));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle border */
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.4));
   
   /* Layout & Spacing */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 30px; /* More padding on sides (30px) to clear the curves */
-  margin: 20px auto;  /* Centers the header and adds space from top */
-  width: 90%;         /* Don't span full width, looks better as a "floating pill" */
-  max-width: 1200px;  /* Stop it from getting too wide on huge screens */
+  padding: 12px 28px;
+  margin: 16px auto;
+  width: 95%;
+  max-width: 1200px;
   
   /* Shape & Float */
-  border-radius: 50px; /* Full pill shape */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  border-radius: 50px;
+  box-shadow: var(--card-shadow, 0 8px 32px rgba(0, 0, 0, 0.05));
   position: sticky;
-  top: 20px;          /* Sticks 20px from top when scrolling */
+  top: 16px;
   z-index: 1000;
   transition: all 0.3s ease;
 }
 
-/* Hover effect for the whole header */
-header:hover {
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  border-color: rgba(255, 255, 255, 0.8);
+.site-header:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-color);
 }
 
-header h1 {
-  font-size: 1.2rem;
-  margin: 0;
-  color: #333; /* Darker grey for better contrast */
-  color: var(--text-primary);
-  font-weight: 600;
+.header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-link {
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
-/* Make "FitFinder" pop more than "Profile Rank" */
+.brand-logo {
+  font-size: 1.35rem;
+}
+
 .brand-highlight {
-  color: var(--primary-color, #007bff); /* Use your primary theme color */
+  color: var(--primary-color, #007bff);
   font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* Navigation Links */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* Search input */
+.header-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  background: var(--bg-secondary, rgba(255, 255, 255, 0.9));
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  width: 220px;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.search-input:focus {
+  width: 260px;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 /* The GitHub Button Circle */
@@ -62,17 +111,110 @@ header h1 {
   color: var(--text-primary);
   padding: 8px;
   border-radius: 50%;
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
+  text-decoration: none;
 }
 
 .github-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
-  transform: rotate(15deg); /* Playful rotation on hover */
-  color: black;
+  background: rgba(0, 123, 255, 0.1);
+  color: var(--primary-color);
+  transform: rotate(15deg);
+}
+
+.mobile-menu-btn {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.mobile-menu-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* Mobile Dropdown */
+.mobile-dropdown {
+  position: absolute;
+  top: 76px;
+  left: 0;
+  right: 0;
+  width: 90%;
+  margin: 0 auto;
+  background: var(--header-bg, rgba(255, 255, 255, 0.95));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 999;
+  animation: dropdownFade 0.25s ease;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-search-input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.mobile-nav-link:hover {
+  background: rgba(0, 123, 255, 0.1);
+  color: var(--primary-color);
+}
+
+.mobile-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    padding: 10px 18px;
+  }
 }
