@@ -12,6 +12,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 12px 30px; /* More padding on sides (30px) to clear the curves */
   margin: 20px auto;  /* Centers the header and adds space from top */
   width: 90%;         /* Don't span full width, looks better as a "floating pill" */
@@ -33,27 +34,93 @@ header:hover {
   border-color: rgba(255, 255, 255, 0.8);
 }
 
+[data-theme="dark"] header {
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+[data-theme="dark"] header:hover {
+  background: rgba(45, 55, 72, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 header h1 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin: 0;
-  color: #333; /* Darker grey for better contrast */
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-/* Make "FitFinder" pop more than "Profile Rank" */
 .brand-highlight {
-  color: var(--primary-color, #007bff); /* Use your primary theme color */
+  color: var(--primary-color, #007bff);
   font-weight: 800;
 }
 
+/* Navigation Links */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  background: rgba(0, 123, 255, 0.08);
+}
+
+/* Search input */
+.header-search {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.2s ease;
+  width: 200px;
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  width: 240px;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Controls */
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 /* The GitHub Button Circle */
@@ -73,6 +140,98 @@ header h1 {
 
 .github-btn:hover {
   background: rgba(0, 0, 0, 0.05);
-  transform: rotate(15deg); /* Playful rotation on hover */
-  color: black;
+  transform: rotate(15deg);
+  color: var(--primary-color);
+}
+
+[data-theme="dark"] .github-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Dropdown */
+.mobile-dropdown {
+  display: none;
+  width: 100%;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-search-input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+  background: rgba(0, 123, 255, 0.08);
+  color: var(--primary-color);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .header-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  header {
+    border-radius: 20px;
+    padding: 12px 18px;
+    width: 95%;
+  }
+
+  .header-search {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-dropdown {
+    display: flex;
+  }
 }

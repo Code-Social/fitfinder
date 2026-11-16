@@ -31,7 +31,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     }
     
     // Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')?.matches) {
       return 'dark';
     }
     
@@ -54,15 +54,24 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     document.documentElement.setAttribute('data-theme', theme);
     
     // Listen for system theme changes
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    };
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      if (mediaQuery) {
+        const handleChange = (e: MediaQueryListEvent) => {
+          if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+          }
+        };
 
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+        if (mediaQuery.addEventListener) {
+          mediaQuery.addEventListener('change', handleChange);
+          return () => mediaQuery.removeEventListener('change', handleChange);
+        } else if (mediaQuery.addListener) {
+          mediaQuery.addListener(handleChange);
+          return () => mediaQuery.removeListener(handleChange);
+        }
+      }
+    }
   }, [theme]);
 
   const value = {
