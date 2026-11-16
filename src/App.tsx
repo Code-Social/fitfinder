@@ -1,17 +1,23 @@
 import React from 'react';
 import './App.css';
 import { ThemeProvider } from './contexts/ThemeContext';
-import ThemeToggle from './components/ThemeToggle';
 import BackgroundImage from './components/BackgroundImage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
 function App() {
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <ThemeProvider>
       <BackgroundImage />
       <div className="container">
-        < Header />     {/* Changed Static Header to Header component */}
+        <Header />
         
         {/* main */}
         <main>
@@ -26,13 +32,23 @@ function App() {
             </p>
             
             <div className="buttons">
-              <button className="primary-btn">Start Contributing</button>
-              <button className="secondary-btn">Learn More</button>
+              <button
+                className="primary-btn"
+                onClick={() => scrollToSection('open-source')}
+              >
+                Start Contributing
+              </button>
+              <button
+                className="secondary-btn"
+                onClick={() => scrollToSection('opportunities')}
+              >
+                Learn More
+              </button>
             </div>
           </section>
 
           {/* what you can find section */}
-          <section className="opportunities">
+          <section id="opportunities" className="opportunities">
             <h3>What Can You Discover?</h3>
             <div className="grid">
               <div className="card">
@@ -63,7 +79,7 @@ function App() {
           </section>
 
           {/* how it works */}
-          <section className="how-it-works">
+          <section id="how-it-works" className="how-it-works">
             <h3>How It Works</h3>
             <div className="steps">
               <div className="step">
@@ -85,7 +101,7 @@ function App() {
           </section>
 
           {/* open source */}
-          <section className="open-source">
+          <section id="open-source" className="open-source">
             <h3>Open Source Project</h3>
             <p>Help us build this platform! Perfect for beginners and experienced developers.</p>
             <div className="buttons">
@@ -99,11 +115,7 @@ function App() {
           </section>
         </main>
 
-        {/* Footer */}
-        {/* <footer>
-          <p>Made with ❤️ by the open source community of Code Social</p>
-        </footer> */}
-        <Footer/>
+        <Footer />
       </div>
     </ThemeProvider>
   );
