@@ -28,16 +28,36 @@ export default function Header() {
     []
   );
 
-  return (
-    <header className="bg-white shadow-md px-4 py-3">
-      <nav className="flex items-center justify-between">
-        <div className="text-xl font-bold">FitFinder</div>
+ return (
+  <header className="bg-white shadow-md px-4 py-3">
+    <nav className="flex items-center justify-between">
+      <div className="text-xl font-bold">FitFinder</div>
 
-        {/* ✅ Search input */}
+      <input
+        type="text"
+        placeholder="Search opportunities..."
+        className="header-search hidden md:block"
+        value={query}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          debouncedSearch(e.target.value);
+        }}
+      />
+
+      <button
+        className="md:hidden p-2 bg-gray-300 rounded"
+        onClick={toggleMenu}
+      >
+        {isOpen ? "✖" : "☰"}
+      </button>
+    </nav>
+
+    {isOpen && (
+      <div className="md:hidden mt-2 space-y-2">
         <input
           type="text"
           placeholder="Search opportunities..."
-          className="hidden md:block px-3 py-1 border rounded"
+          className="header-search w-full"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -45,33 +65,14 @@ export default function Header() {
           }}
         />
 
-        <button
-          className="md:hidden p-2 bg-gray-300 rounded"
-          onClick={toggleMenu}
-        >
-          {isOpen ? "✖" : "☰"}
-        </button>
-      </nav>
-
-    {isOpen && (
-  <div className="md:hidden mt-2 space-y-2">
-    {/* Mobile search input */}
-    <input
-      type="text"
-      placeholder="Search opportunities..."
-      className="w-full px-3 py-2 border rounded"
-      value={query}
-      onChange={(e) => {
-        setQuery(e.target.value);
-        debouncedSearch(e.target.value);
-      }}
-    />
-
-    {/* Mobile menu links */}
-    <ul className="flex flex-col space-y-2 bg-gray-50 shadow-md p-2 rounded">
-      <li className="px-3 py-2 rounded hover:bg-gray-200">Link 1</li>
-      <li className="px-3 py-2 rounded hover:bg-gray-200">Link 2</li>
-      <li className="px-3 py-2 rounded hover:bg-gray-200">Link 3</li>
-    </ul>
-  </div>
-)}
+        <ul className="flex flex-col space-y-2 bg-gray-50 shadow-md p-2 rounded">
+          <li>Link 1</li>
+          <li>Link 2</li>
+          <li>Link 3</li>
+        </ul>
+      </div>
+    )}
+  </header>
+);
+ 
+}
