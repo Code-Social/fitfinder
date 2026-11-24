@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import { ThemeProvider } from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
