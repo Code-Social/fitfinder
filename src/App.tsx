@@ -10,8 +10,9 @@ function App() {
     <ThemeProvider>
       <BackgroundImage />
       <div className="container">
-        < Header />     {/* Changed Static Header to Header component */}
-        
+        < Header /> {/* Changed Static Header to Header component */}
+        <br />    
+        <ThemeToggle/>
         {/* main */}
         <main>
           {/* hero section*/}
